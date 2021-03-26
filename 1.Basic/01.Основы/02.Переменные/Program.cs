@@ -65,9 +65,9 @@ namespace MyProgram
             * Console.ReadLine получает информацию в виде строки, но часто нужно получить ввод в виде числа.
             * Convert.ToInt32 преобразует ввод из строки в число
             */
-            Console.WriteLine("Введите число:");
-            int num = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Вы ввели: {num}");
+            string mynum = "10";
+            int num = Convert.ToInt32(mynum);
+            Console.WriteLine($"Конвертация: {num}");
 
             /*
             * Использование суффиксов
@@ -87,6 +87,33 @@ namespace MyProgram
             uint ui1 = 10U;
             long lg2 = 20L;
             ulong ulg3 = 30UL;
+
+            // Null
+            // Некоторые переменные могут иметь еще и значение null
+            // Задается знаком ? после указания типа
+            int myint1 = 10; // не может быть null
+            int? myint2 = 10; // может быть null
+
+            // Свойство HasValue позволяет проверить содержит ли переменная значение:
+            if (myint2.HasValue) // либо (myint2 != null)
+            {
+                Console.WriteLine($"Содержит: {myint2.Value}");
+            }
+            else
+            {
+                Console.WriteLine("Нет значения(null)");
+            }
+
+            // Можно использовать оператор is с шаблоном типа как для проверки экземпляра типа,
+            // допускающего значение null, так и для извлечения значения базового типа.
+            if (a is int mydata)
+            {
+                Console.WriteLine($"Содержит: {mydata}");
+            }
+            else
+            {
+                Console.WriteLine("Нет значения(null)");
+            }
 
             Console.ReadKey();  // Ожидает нажатия любой клавиши
         }
