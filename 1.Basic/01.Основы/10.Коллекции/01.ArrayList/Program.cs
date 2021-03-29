@@ -20,8 +20,6 @@ namespace MyProgram
              * С классом List познакомимся чуть позже
              */
 
-
-
             ArrayList list = new(); // Создаем
             list.Add(10); // добавляем int
             list.Add(55.5); // добавляем double
@@ -39,13 +37,13 @@ namespace MyProgram
             }
             Console.WriteLine(new string('-', 20));
 
-            // удаляем первый элемент
+            // Удаляем первый элемент
             list.RemoveAt(0);
 
-            // переворачиваем список
+            // Переворачиваем список
             list.Reverse();
 
-            // перебор значений циклом for
+            // Перебор значений циклом for
             for (int i = 0; i < list.Count; i++)
             {
                 Console.WriteLine(list[i]);
@@ -55,3 +53,15 @@ namespace MyProgram
         }
     }
 }
+
+/*
+ * int Add(value): добавляет в список объект value
+ * void AddRange(ICollection col): добавляет в список объекты коллекции.
+ * void Clear(): удаляет из списка все элементы
+ * bool Contains(value): проверяет, содержится ли в списке объект value.
+ * int IndexOf(value): возвращает индекс элемента
+ * void Remove(value): удаляет из списка объект value
+ * void RemoveAt(i): удаляет из списка элемент по индексу i
+ * void Reverse(): переворачивает список
+ * void Sort(): сортировка 
+*/
