@@ -9,12 +9,12 @@ namespace MyProgram
         static void Main(string[] args)
         {
             /*
-             * Класс ObservableCollection похож на список (List)
-             * за исключением того что выдает уведомления при
-             * добавлении и удалении, а также при обновлении элементов коллекции.
-             * ObservableCollection определяет событие CollectionChanged 
-             * подписавшись на которое, мы можем обработать любые изменения коллекции.
-             */
+            * Класс ObservableCollection похож на список (List)
+            * за исключением того что выдает уведомления при
+            * добавлении и удалении, а также при обновлении элементов коллекции.
+            * ObservableCollection определяет событие CollectionChanged 
+            * подписавшись на которое, мы можем обработать любые изменения коллекции.
+            */
 
             // Создаем коллекцию
             ObservableCollection<int> mydata = new() { 1, 2, 3, 4, 5 };
@@ -22,16 +22,9 @@ namespace MyProgram
             // Подписываем обработчик события
             mydata.CollectionChanged += Collect_handler;
 
-            mydata.Add(6);
-            mydata.RemoveAt(1);
-            mydata[0] = 10;
-
-            foreach (int num in mydata)
-            {
-                Console.WriteLine(num);
-            }
-
-            Console.Read();
+            mydata.Add(6);// добавление
+            mydata.RemoveAt(1); // удаление
+            mydata[0] = 10; // замена
 
         }
 
