@@ -18,7 +18,7 @@ namespace MyProgram
             // Создадим очередь
             Queue<int> qnum = new();
 
-            // Добавит элементы в очередь
+            // Добавим элементы в очередь
             qnum.Enqueue(1); // очередь 1
             qnum.Enqueue(2); // очередь 1, 2
             qnum.Enqueue(3); // очередь 1, 2, 3
@@ -29,13 +29,13 @@ namespace MyProgram
 
             // получаем первый элемент очереди
             int num  = qnum.Dequeue(); //очередь 2, 3, 4, 5
-            Console.WriteLine($"Извлеченный элемент из очереди {num}");
+            Console.WriteLine($"Извлеченный элемент: {num}");
 
             Console.WriteLine($"Очередь: {string.Join(" ", qnum)}");
 
             // Следующий элемент в очереди
-            num = qnum.Peek(); //очередь также 2, 3, 4, 5
-            Console.WriteLine($"Следующий элемент {num}");
+            num = qnum.Peek(); // очередь также 2, 3, 4, 5
+            Console.WriteLine($"Следующий элемент: {num}");
 
         }
     }
