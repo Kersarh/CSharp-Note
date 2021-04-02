@@ -73,6 +73,11 @@ namespace MyProgram
             int[] arr = new int[] { 1, 2, 3, 4, 5 };
             Addition(arr); // 15
 
+            // Перегрузка методов
+            int over1 =  OverloadSum(1);
+            int over2 = OverloadSum(1, 2);
+            Console.WriteLine($"{over1} -- {over2}");
+
         }
 
         // Метод
@@ -128,7 +133,6 @@ namespace MyProgram
 
         }
 
-
         /* Используя ключевое слово params можно передавать
         * неизвестное заранее количество параметров.
         * Параметр с ключевым словом params должен представлять
@@ -146,5 +150,28 @@ namespace MyProgram
             Console.WriteLine(result);
 
         }
+
+        // Перегрузка методов
+        // Пример перегрузки методов под разные сигнатуры
+        // Выполняться будет метод который подходит под переданные параметры
+        static int OverloadSum(int x) => x + 1;
+        static int OverloadSum(int x, int y) => x + y;
+
+        // Краткая запись методов
+        static void ShortMethod() => Console.WriteLine("Краткая запись метода");
+        /* Что можно записать как
+        * public void ShortMethod()
+        * {
+        *     Console.WriteLine("Краткая запись метода")
+        * }
+        */
+        static int ShortMethod2(int x) => x+1;
+        /* Что можно записать как
+        * public int ShortMethod(int x)
+        * {
+        *     return x+1;
+        * }
+        */
+
     }
 }
