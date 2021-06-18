@@ -53,3 +53,7 @@ dotnet publish -c Release -r win-x64 --output myapp
 ```bash
 dotnet publish --self-contained -c release -r win10-x64 -p:PublishTrimmed=True -p:TrimMode=Link -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true
 ```
+
+```bash
+dotnet publish -c Release -r win10-x64 -p:PublishTrimmed=True -p:TrimMode=CopyUsed -p:PublishSingleFile=true --self-contained true
+```
