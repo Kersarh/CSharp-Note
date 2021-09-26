@@ -7,10 +7,10 @@ namespace MyProgram
     {
         static void Main(string[] args)
         {
-            Animal auto = new(new FlyMove());
-            auto.MyMethod();
-            auto.SetStrategy(new RaceMove());
-            auto.MyMethod();
+            Animal myBestAnimal = new(new FlyMove());
+            myBestAnimal.Travel(); // По воздуху
+            myBestAnimal.SetStrategy(new RaceMove()); // Меняем стратегию
+            myBestAnimal.Travel(); // По земле
         }
     }
 
@@ -56,7 +56,7 @@ namespace MyProgram
         }
 
         // Метод через который реализуется стратегия
-        public void MyMethod()
+        public void Travel()
         {
             // Вызовет Move заданной стратегии
             _mov.Move();
