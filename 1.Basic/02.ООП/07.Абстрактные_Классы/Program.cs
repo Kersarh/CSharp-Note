@@ -2,14 +2,14 @@
 
 namespace MyProgram
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             /* Особенность абстрактных классов в том,что их можно
             * использовать только как родительский класс (не возможно создать экземпляр класса)
             * Для объявления используется ключевое слово abstract.
-            * 
+            *
             * Абстрактные классы могут быть полезны чтобы объединить реализацию схожих классов.
             * Например Вы пишите программы в которой работают как пользователи так и сотрудники фирмы.
             * Пусть страницы входа для пользователя и сотрудника различны.
@@ -19,64 +19,72 @@ namespace MyProgram
             * от которого будут наследоваться и пользователи и сотрудники.
             */
 
-            //Person pers = new(); // ошибка
+            Transport car = new Car(4, 100000, "Bob");
+            Transport bus = new Bus(20, 20000, "Рога и копыта");
+            // или 
+            Car car2 = new(4, 100000, "Bob");
+            Bus bus2 = new(20, 20000, "Рога и копыта");
 
-            Moder mod = new();
-            mod.login = "Moder"; // зададим логин
-            mod.password = "qwerty"; // и пароль
-            mod.Welcome();
+            car2.DisplayData();
+            bus2.DisplayData();
 
-            User usr = new();
-            usr.login = "User";
-            usr.password = "123";
-            usr.Welcome(); // Доступ запрещен!
+            car2.PrintDriver();
+            bus2.PrintOffiseOwner();
 
-            /* Несмотря на очень упрощенную реализацию 
-            * часть общей логики мы вынесли в класс Person
-            * от которого наследуются как user так и moder.
+
+
+
+            /* Несмотря на очень упрощенную реализацию
+            * часть общей логики мы вынесли в класс Transport
+            * от которого наследуются Car и Bus.
             */
-
         }
     }
 
-    public abstract class Person
+    internal abstract class Transport // включает в себя общую логику классов Car и Bus
     {
-        public string login;
-        public string password;
+        public int Capacity { get; set; }
+        public int Mileage { get; set; }
 
-        public bool Authorization()
+        public Transport(int cap, int mil)
         {
-            if (password == "qwerty") // qwerty в нашем случае правильный пароль ))
-            {
-                Console.WriteLine("Авторизация успешна");
-                return true;
-            }
+            Capacity = cap;
+            Mileage = mil;
+        }
 
-            Console.WriteLine("Доступ запрещен!");
-            return false;
+        public void DisplayData()
+        {
+            Console.WriteLine($"Вместимость {Capacity}, Пробег {Mileage}");
         }
     }
 
-    public class Moder : Person
+    internal class Car : Transport
     {
-        public string Login { get; set; }
-        public void Welcome()
+        private string driver;
+
+        public Car(int cap, int mil, string drw) : base(cap, mil)
         {
-            if (Authorization())
-            {
-                Console.WriteLine($"{Login} Ваша роль модератор");
-            }
+            driver = drw;
+        }
+
+        public void PrintDriver()
+        {
+            Console.WriteLine($"Водитель {driver}");
         }
     }
 
-    public class User : Person
+    internal class Bus : Transport
     {
-        public void Welcome()
+        private string offiseOwner;
+
+        public Bus(int cap, int mil, string own) : base(cap, mil)
         {
-            if (Authorization())
-            {
-                Console.WriteLine($"{login} Ваша роль пользователь");
-            }
+            offiseOwner = own;
+        }
+
+        public void PrintOffiseOwner()
+        {
+            Console.WriteLine($"Фирма владелец {offiseOwner}");
         }
     }
 }
