@@ -80,11 +80,11 @@ namespace MyProgram
 
     internal class Bus : Transport
     {
-        private string offiseOwner;
+        private string officeOwner;
 
         public Bus(int cap, int mil, string own) : base(cap, mil)
         {
-            offiseOwner = own;
+            officeOwner = own;
         }
 
         public override void AbstractMethod()
@@ -94,7 +94,7 @@ namespace MyProgram
 
         public void PrintOffiseOwner() // Уникальный метод присущий только классу Bus
         {
-            Console.WriteLine($"Фирма владелец {offiseOwner}");
+            Console.WriteLine($"Фирма владелец {officeOwner}");
         }
     }
 }
