@@ -2,9 +2,9 @@
 
 namespace MyProgram
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             /* Массив представляет набор однотипных данных.
             * Определение массива:
@@ -33,7 +33,7 @@ namespace MyProgram
             nums7[2] = 3;
             Console.WriteLine(nums7[1]);  // 2
 
-            /* 
+            /*
             * Многомерные массивы характеризуются таким понятием как ранг или количество измерений.
             * У многомерных массивов количество измерений (ранг) больше 1.
             */
@@ -51,8 +51,6 @@ namespace MyProgram
             int[,] mm4 = new int[,] { { 0, 1, 2 }, { 3, 4, 5 } };
             int[,] mm5 = new[,] { { 0, 1, 2 }, { 3, 4, 5 } };
             int[,] mm6 = { { 0, 1, 2 }, { 3, 4, 5 } };
-
-
 
             int[,] mmas2 = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
 
@@ -95,7 +93,6 @@ namespace MyProgram
                 new int[,] { {1,2}, {3,6} },
                 new int[,] { {1,2}, {3,5}, {8, 13} }
             };
-
 
             int[][] m2 = new int[3][];
             m2[0] = new int[] { 1, 2 };
@@ -140,14 +137,17 @@ namespace MyProgram
             // В итоге m3 = { 2, 1, 0, -1, -2 }
 
             // Сортировка массива
-            Sorf_fun();
+            // Исходный массив с данными в случайном порядке
+            int[] nums = new int[7] { 9, 56, 34, 1, 6, 77, 88 };
+            Sorf_fun(nums);
+            // аналогично
+            Array.Sort(nums);
 
         }
 
-        static void Sorf_fun()
+        private static void Sorf_fun(int[] nums)
         {
             // Исходный массив с данными в случайном порядке
-            int[] nums = new int[7] { 9, 56, 34, 1, 6, 77, 88 };
 
             /* Сортировка массива
              * Проход по массиву и сравниваем элементы,
@@ -167,7 +167,6 @@ namespace MyProgram
                         nums[j] = buf;
                     }
                 }
-
             }
 
             // Вывод итогов.
