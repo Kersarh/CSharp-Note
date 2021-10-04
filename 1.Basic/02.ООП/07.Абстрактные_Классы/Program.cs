@@ -53,6 +53,8 @@ namespace MyProgram
         {
             Console.WriteLine($"Вместимость {Capacity}, Пробег {Mileage}");
         }
+
+        public abstract void AbstractMethod(); // Абстрактный метод должен быть определен в классах наследниках!
     }
 
     internal class Car : Transport
@@ -63,6 +65,11 @@ namespace MyProgram
         {
             // конструктор на основе абстрактного класса.
             driver = drw;
+        }
+
+        public override void AbstractMethod() // реализация абстрактного метода
+        {
+            Console.WriteLine($"Абстрактный метод Car");
         }
 
         public void PrintDriver() // Уникальный метод присущий только классу Car
@@ -78,6 +85,11 @@ namespace MyProgram
         public Bus(int cap, int mil, string own) : base(cap, mil)
         {
             offiseOwner = own;
+        }
+
+        public override void AbstractMethod()
+        {
+            Console.WriteLine($"Абстрактный метод Bus");
         }
 
         public void PrintOffiseOwner() // Уникальный метод присущий только классу Bus
