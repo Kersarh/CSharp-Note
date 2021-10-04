@@ -21,7 +21,7 @@ namespace MyProgram
 
             Transport car = new Car(4, 100000, "Bob");
             Transport bus = new Bus(20, 20000, "Рога и копыта");
-            // или 
+            // или
             Car car2 = new(4, 100000, "Bob");
             Bus bus2 = new(20, 20000, "Рога и копыта");
 
@@ -30,9 +30,6 @@ namespace MyProgram
 
             car2.PrintDriver();
             bus2.PrintOffiseOwner();
-
-
-
 
             /* Несмотря на очень упрощенную реализацию
             * часть общей логики мы вынесли в класс Transport
@@ -64,10 +61,11 @@ namespace MyProgram
 
         public Car(int cap, int mil, string drw) : base(cap, mil)
         {
+            // конструктор на основе абстрактного класса.
             driver = drw;
         }
 
-        public void PrintDriver()
+        public void PrintDriver() // Уникальный метод присущий только классу Car
         {
             Console.WriteLine($"Водитель {driver}");
         }
@@ -82,7 +80,7 @@ namespace MyProgram
             offiseOwner = own;
         }
 
-        public void PrintOffiseOwner()
+        public void PrintOffiseOwner() // Уникальный метод присущий только классу Bus
         {
             Console.WriteLine($"Фирма владелец {offiseOwner}");
         }
